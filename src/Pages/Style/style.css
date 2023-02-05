@@ -1,0 +1,32 @@
+.logoColor{
+    color: #DF7031;
+}
+.button{
+    background-color: #DF7031;
+    border: none;
+}
+.button:hover{
+    background-color: #cc713c;
+}
+.dashboard ul{
+    list-style: none;
+}
+.dashboard ul li{
+    color: black !important;
+}
+.dashboard .nav-link{
+    color: black;
+    margin-top: 2px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+}
+.dashboard .nav-item{
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+.dashboard .nav-link:hover{
+    color: #DF7031;
+    margin-top: 2px;
+    width: 100%;
+}
