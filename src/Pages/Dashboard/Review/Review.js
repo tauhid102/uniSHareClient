@@ -33,8 +33,8 @@ const Review = () => {
   };
   return (
     <div>
-      <div className="container mt-5">
-        <h4 className="text-center">Please Give Review</h4>
+      <div className="container mt-3">
+        <h4 className="text-center border bg-info p-2">Please Give Review</h4>
         <div className="row g-3 w-75 border p-4 d-block m-auto">
           <form onSubmit={handleSubmit(addReview)}>
             <div className="row">
@@ -78,7 +78,7 @@ const Review = () => {
                     id="inputState"
                     className="form-select"
                   >
-                    <option selected>Great</option>
+                    <option value={'Great'}>Great</option>
                     <option>Good</option>
                     <option>Average</option>
                     <option>Poor</option>

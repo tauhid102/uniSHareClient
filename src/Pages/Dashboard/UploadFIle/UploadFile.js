@@ -23,7 +23,6 @@ const UploadFile = () => {
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
-          console.log(imgData.data.url);
           const question = {
             courseTitle: data.courseTitle,
             exam: data.exam,
@@ -43,7 +42,6 @@ const UploadFile = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               toast.success("Question is added successfully");
             });
         }
@@ -52,8 +50,8 @@ const UploadFile = () => {
 
   return (
     <div>
-      <div className="container mt-5">
-        <h4 className="text-center">Upload file</h4>
+      <div className="container mt-3">
+        <h4 className="text-center border bg-info p-2">Upload file</h4>
         <div className="row g-3 w-75 border p-4 d-block m-auto">
           <form onSubmit={handleSubmit(uploadFIle)}>
             <div className="row">
@@ -85,7 +83,7 @@ const UploadFile = () => {
                     id="inputState"
                     className="form-select"
                   >
-                    <option selected>CT</option>
+                    <option value={'CT'}>CT</option>
                     <option>Mid</option>
                     <option>Final</option>
                     <option>Other</option>
@@ -121,7 +119,7 @@ const UploadFile = () => {
                   id="inputState"
                   className="form-select"
                 >
-                  <option selected>CSE Theory</option>
+                  <option value='CSE Theory'>CSE Theory</option>
                   <option>CSE Lab</option>
                   <option>Math</option>
                   <option>English</option>
@@ -131,7 +129,7 @@ const UploadFile = () => {
               </div>
               <div className="col-md-6 ">
                 <label htmlFor="inputEmail1" className="form-label">
-                  Photo
+                  File
                 </label>
                 <input
                   type="file"

@@ -19,16 +19,13 @@ const Login = () => {
   const from= location.state?.from?.pathname || '/';
 
   const onSubmit = (data) => {
-    console.log(data);
     setLoginErr("");
     signIn(data.email, data.password)
       .then((result) => {
-        console.log(result.user);
         toast("User Login Successfully");
         navigate(from,{replace:true});
       })
       .catch((err) => {
-        console.log(err);
         setLoginErr(err.message);
       });
   };
@@ -97,11 +94,11 @@ const Login = () => {
             )}
           </div>
         </form>
-        <div className="col-12 text-center mt-3">
+        {/* <div className="col-12 text-center mt-3">
           <button type="submit" className="btn btn-dark w-100">
             Login Using Gmail
           </button>
-        </div>
+        </div> */}
         <p className="text-center">
           New in <span className="logoColor ">Uni</span>share?
           <Link to="/register">Create New Account</Link>

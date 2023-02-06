@@ -49,7 +49,7 @@ const ManageReview = () => {
 
   return (
     <div>
-      <h3 className="text-center mt-3">Manage All Review</h3>
+      <h3 className="text-center mt-3 border bg-info p-2">Manage All Review</h3>
       <table className="table table-responsive{-sm|-md|-lg|-xl|-xxl}">
         <thead>
           <tr>
@@ -74,12 +74,12 @@ const ManageReview = () => {
               <td>{his.status}</td>
               <td className="">
                 <button className="btn" onClick={() => handleApproved(his._id)}>
-                  <i class="fa-regular fa-square-check h5 text-info"></i>
+                  <i className="fa-regular fa-square-check h5 text-info"></i>
                 </button>
               </td>
               <td className="">
                 <button className="btn" onClick={() => handleCancel(his._id)}>
-                  <i class="fa-solid fa-trash-can h5 text-danger"></i>
+                  <i className="fa-solid fa-trash-can h5 text-danger"></i>
                 </button>
               </td>
             </tr>

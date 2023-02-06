@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 const AllFile = () => {
   const [question, setQuestion] = useState([]);
-  const [pageCount, setPageCount] = useState(0);
   const [category, setCategory] = useState([]);
   const [alart, setAlart] = useState(false);
   const { user } = useContext(AuthContext);
@@ -21,12 +20,12 @@ const AllFile = () => {
       .then((res) => res.json())
       .then((data) => setQuestion(data));
   }, [question]);
+  const filterQuestion=question.filter(item=>item.status==='Approved')
   useEffect(() => {
     fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => setAllUsers(data));
   }, [allUsers]);
-  console.log(user)
   const search = (data) => {
     if (data.courseTitle === "") {
       const ct = question.filter((item) => item.exam === data.exam);
@@ -36,7 +35,6 @@ const AllFile = () => {
     } else {
       const ct = question.filter((item) => item.exam === data.exam);
       const category = ct.filter((item) => item.category === data.category);
-      console.log(category);
       const course = category.filter((item) =>
         item.courseTitle.includes(data.courseTitle)
       );
@@ -47,14 +45,12 @@ const AllFile = () => {
   const download = (url) => {
     const email = user?.email;
     const findUser = allUsers.filter((user) => user.email === email);
-    console.log(findUser[0].point);
     if (findUser[0]?.point > 0) {
       fetch(`http://localhost:5000/point/remove/${email}`, {
         method: "PUT",
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           saveAs(url, url);
           toast.success("Download Success");
         });
@@ -112,7 +108,7 @@ const AllFile = () => {
                   type="submit"
                   className="btn btn-primary w-100 button text-center"
                 >
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
               </div>
             </div>
@@ -131,18 +127,18 @@ const AllFile = () => {
       {category?.map((ques) => (
         <div
           key={ques._id}
-          class="card mb-3 shadow-lg p-3 mb-5 bg-white rounded"
+          className="card mb-3 shadow-lg p-3 mb-5 bg-white rounded"
         >
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src={ques.image} class="img-fluid rounded-start" alt="..." />
+          <div className="row g-0">
+            <div className="col-md-4">
+              <img src={ques.image} className="img-fluid rounded-start" alt="..." />
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{ques.courseTitle}</h5>
-                <p class="card-text">{ques.description}</p>
-                <h5 class="card-title">{ques.exam}</h5>
-                <h5 class="card-title">{ques.category}</h5>
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">{ques.courseTitle}</h5>
+                <p className="card-text">{ques.description}</p>
+                <h5 className="card-title">{ques.exam}</h5>
+                <h5 className="card-title">{ques.category}</h5>
                 <button
                   className="btn btn-info"
                   onClick={() => download(ques.image)}
@@ -156,25 +152,26 @@ const AllFile = () => {
       ))}
       <div>
         <h5 className="mt-4 text-center">All File</h5>
-        {question?.map((ques) => (
+        {filterQuestion?.map((ques) => (
           <div
             key={ques._id}
-            class="card mb-3 shadow-lg p-3 mb-5 bg-white rounded"
+            className="card mb-3 shadow-lg p-3 mb-5 bg-white rounded"
           >
-            <div class="row g-0">
-              <div class="col-md-4">
+            <div className="row g-0">
+              <div className="col-md-4">
                 <img
                   src={ques.image}
-                  class="img-fluid rounded-start"
+                  className="img-fluid rounded-start"
                   alt="..."
+                  width='50%'
                 />
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{ques.courseTitle}</h5>
-                  <p class="card-text">{ques.description}</p>
-                  <h5 class="card-title">{ques.exam}</h5>
-                  <h5 class="card-title">{ques.category}</h5>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h5 className="card-title">{ques.courseTitle}</h5>
+                  <p className="card-text">{ques.description}</p>
+                  <h5 className="card-title">{ques.exam}</h5>
+                  <h5 className="card-title">{ques.category}</h5>
                   <button
                     className="btn btn-info"
                     onClick={() => download(ques.image)}

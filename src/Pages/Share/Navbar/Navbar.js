@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 import "../../Style/style.css";
+import Dropdown from "react-bootstrap/Dropdown";
+import { Button } from "react-bootstrap";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const handleLogout = () => {
@@ -46,6 +48,11 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/forum">
+                  Forum
+                </Link>
+              </li>
+              <li className="nav-item">
                 {user?.uid ? (
                   ""
                 ) : (
@@ -62,14 +69,29 @@ const Navbar = () => {
                 )}
               </li>
               <li className="nav-item">
-                <p className="nav-link border">Point: {users[0]?.point}</p>
+                <span className="nav-link">Point: {users[0]?.point}</span>
               </li>
               <li className="nav-item">
                 {user?.uid && (
                   <>
-                    <buttoh onClick={handleLogout} className="btn nav-link">
-                      Sign Out
-                    </buttoh>
+                    <Dropdown>
+                      <Dropdown.Toggle id="dropdown-basic">
+                      <img
+                          src={user.photoURL}
+                          class="d-flex m-auto  profileImageNavbar"
+                          alt="..."
+                          height="50px"
+                          width="50px"
+                        />
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item as={Link} to='/dashboard'>Dashboard</Dropdown.Item>
+                        <Dropdown.Item as={Link} to='/dashboard/myProfile'>Profile</Dropdown.Item>
+                        <Dropdown.Item>
+                          <Button onClick={handleLogout} className="btn btn-danger">Sign Out</Button>
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </>
                 )}
               </li>

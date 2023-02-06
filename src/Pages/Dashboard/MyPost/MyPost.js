@@ -12,7 +12,7 @@ const MyPost = () => {
   }, [user.email]);
   return (
     <div>
-      <h3 className="text-center mt-3">My History</h3>
+      <h3 className="text-center mt-3 border bg-info p-2">My History</h3>
       <table className="table table-responsive{-sm|-md|-lg|-xl|-xxl}">
         <thead>
           <tr>

@@ -18,6 +18,8 @@ import Request from "./Pages/Dashboard/Request/Request";
 import ManageRequest from "./Pages/Dashboard/ManageRequest/ManageRequest";
 import Review from "./Pages/Dashboard/Review/Review";
 import ManageReview from "./Pages/Dashboard/ManageReview/ManageReview";
+import Profile from "./Pages/Dashboard/Profile/Profile";
+import Forum from "./Pages/Forum/Forum";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +30,7 @@ function App() {
         { path: "/", element: <PrivateRoute><Home></Home></PrivateRoute> },
         { path: "/home", element: <PrivateRoute><Home></Home></PrivateRoute>},
         { path: "/allFile", element:<PrivateRoute> <AllFile></AllFile> </PrivateRoute>},
+        { path: "/forum", element:<PrivateRoute> <Forum></Forum> </PrivateRoute>},
         { path: "/login", element: <Login></Login> },
         { path: "/register", element: <Register></Register> },
       ],
@@ -41,6 +44,7 @@ function App() {
       ),
       children:[
         {path:'/dashboard',element:<Dashboard></Dashboard>},
+        {path:'/dashboard/myProfile',element:<Profile></Profile>},
         {path:'/dashboard/uploadFile',element:<UploadFile></UploadFile>},
         {path:'/dashboard/history',element:<MyPost></MyPost>},
         {path:'/dashboard/request',element:<Request></Request>},

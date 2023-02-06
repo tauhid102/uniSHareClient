@@ -4,6 +4,7 @@ import image2 from "../../images/Carosol_3.jpg";
 import image3 from "../../images/Carosol_4.jpg";
 import { Link } from "react-router-dom";
 import AllFile from "../AllFile/AllFile";
+import ShowReview from "../ShowReview/ShowReview";
 const Home = () => {
   return (
     <div>
@@ -101,6 +102,7 @@ const Home = () => {
         </button>
       </div>
       <AllFile></AllFile>
+      <ShowReview></ShowReview>
     </div>
   );
 };

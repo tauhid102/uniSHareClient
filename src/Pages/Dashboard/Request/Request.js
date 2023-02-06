@@ -11,12 +11,14 @@ const Request = () => {
     handleSubmit,
   } = useForm();
   const request = (data) => {
+    let currentDate = new Date().toJSON().slice(0, 10);
     const request = {
       courseTitle: data.courseTitle,
       enterTag: data.enterTag,
       description: data.description,
       category: data.category,
       email: user.email,
+      date:currentDate,
       status: "Not Approved",
     };
     //save in the database
@@ -34,8 +36,8 @@ const Request = () => {
   };
   return (
     <div>
-      <div className="container mt-5">
-        <h4 className="text-center">Request</h4>
+      <div className="container mt-3">
+        <h4 className="text-center border bg-info p-2">Request</h4>
         <div className="row g-3 w-75 border p-4 d-block m-auto">
           <form onSubmit={handleSubmit(request)}>
             <div className="row">

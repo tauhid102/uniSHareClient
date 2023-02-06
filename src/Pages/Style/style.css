@@ -5,6 +5,9 @@
     background-color: #DF7031;
     border: none;
 }
+.navbar{
+    height: 70px;
+}
 .button:hover{
     background-color: #cc713c;
 }
@@ -29,4 +32,25 @@
     color: #DF7031;
     margin-top: 2px;
     width: 100%;
+}
+.profileImage{
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: pointer;
+    margin-top: -5px;
+}
+.profileImageNavbar{
+    border-radius: 50%;
+}
+.dropdown{
+    z-index: 999;
+}
+#dropdown-basic{
+    border: 0px;
+    padding: 0px;
+    background-color: white;
+    height: 50px;
+}
+.dashboardLayout{
+    margin-top: 250px !important;
 }

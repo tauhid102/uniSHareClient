@@ -35,12 +35,17 @@ const DashboardLayout = () => {
                   id="navbarTogglerDemo01"
                 >
                   <div className="dashboard">
-                    <ul className="mb-2 mb-lg-0">
+                    <ul className="mb-2 mb-lg-0 dashboardLayout">
                       <Link className="navbar-brand" to="/dashboard">
                         <h3 className="">
                           <span className="logoColor">Dash</span>board
                         </h3>
                       </Link>
+                      <li className="nav-item">
+                        <Link className="nav-link active" to="/dashboard/myProfile">
+                          My Profile
+                        </Link>
+                      </li>
                       <li className="nav-item">
                         <Link className="nav-link active" to="/dashboard/uploadFile">
                           Upload File

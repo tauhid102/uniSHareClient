@@ -1,10 +1,10 @@
-import React from 'react';
-import MyPost from '../MyPost/MyPost';
+import React, { useContext } from 'react';
+import Profile from '../Profile/Profile';
 
 const Dashboard = () => {
     return (
         <div>
-            <MyPost></MyPost>
+            <Profile></Profile>
         </div>
     );
 };

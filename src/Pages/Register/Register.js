@@ -4,32 +4,32 @@ import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import logo from "../../images/uiu_logo_update.png";
-
+import { getAuth, updateProfile } from "firebase/auth";
+const auth = getAuth();
 const Register = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser} = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState("");
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(data);
     setSignUPError("");
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         toast.success("User Created Successfully");
         const userInfo = {
-          displayName: data.name,
+          displayName: data?.name,
+          photoURL:'https://i.ibb.co/bzhhmgt/userlogo.png',
         };
-        updateUser(userInfo)
+        updateProfile(auth.currentUser,userInfo)
           .then(() => {
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {});
       })
       .catch((err) => {
         setSignUPError(err.message);

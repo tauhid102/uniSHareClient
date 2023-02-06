@@ -41,7 +41,7 @@ const AllUsers = () => {
   };
   return (
     <div>
-      <h3 className="text-center mt-3">All User</h3>
+      <h3 className="text-center mt-3 border bg-info p-2">All User</h3>
       <table className="table table-responsive{-sm|-md|-lg|-xl|-xxl}">
         <thead>
           <tr>
@@ -78,7 +78,7 @@ const AllUsers = () => {
                     onClick={() => handleCancel(user._id)}
                     className="btn"
                   >
-                    <i class="fa-solid fa-trash-can h5 text-danger"></i>
+                    <i className="fa-solid fa-trash-can h5 text-danger"></i>
                   </button>
                 )}
               </td>
