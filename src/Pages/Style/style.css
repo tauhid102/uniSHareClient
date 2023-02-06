@@ -45,12 +45,13 @@
 .dropdown{
     z-index: 999;
 }
-#dropdown-basic{
+.navbarDropdown{
     border: 0px;
     padding: 0px;
     background-color: white;
     height: 50px;
 }
 .dashboardLayout{
-    margin-top: 250px !important;
+    margin-top: 400px !important;
+    background-color: #F8F9FA;
 }

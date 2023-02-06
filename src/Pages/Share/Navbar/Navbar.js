@@ -75,7 +75,7 @@ const Navbar = () => {
                 {user?.uid && (
                   <>
                     <Dropdown>
-                      <Dropdown.Toggle id="dropdown-basic">
+                      <Dropdown.Toggle id="dropdown-basic" className="navbarDropdown">
                       <img
                           src={user.photoURL}
                           class="d-flex m-auto  profileImageNavbar"
