@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Forum = () => {
   const [forums, setForums] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/forum")
+    fetch("https://uni-share-server.vercel.app/forum")
       .then((res) => res.json())
       .then((data) => setForums(data));
   }, []);

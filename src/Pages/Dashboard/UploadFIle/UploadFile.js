@@ -33,7 +33,7 @@ const UploadFile = () => {
             status: "Not Approved",
           };
           //save in the database
-          fetch("http://localhost:5000/questions", {
+          fetch("https://uni-share-server.vercel.app/questions", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -22,7 +22,7 @@ const Request = () => {
       status: "Not Approved",
     };
     //save in the database
-    fetch("http://localhost:5000/request", {
+    fetch("https://uni-share-server.vercel.app/request", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 const ManageReview = () => {
   const [review, setReview] = useState([]);
   const [accepted, setAccepted] = useState(true);
-  const url = "http://localhost:5000/review";
+  const url = "https://uni-share-server.vercel.app/review";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -14,7 +14,7 @@ const ManageReview = () => {
   const handleCancel = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/review/${id}`;
+      const url = `https://uni-share-server.vercel.app/review/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -33,7 +33,7 @@ const ManageReview = () => {
     const ids = { id };
     const proceed = window.confirm("Are you sure, you want to accepted?");
     if (proceed) {
-      const url = `http://localhost:5000/review/${id}`;
+      const url = `https://uni-share-server.vercel.app/review/${id}`;
       fetch(url, {
         method: "PUT",
       })

@@ -14,7 +14,7 @@ const AllFile = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const url = "http://localhost:5000/questions";
+  const url = "https://uni-share-server.vercel.app/questions";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -22,7 +22,7 @@ const AllFile = () => {
   }, [question]);
   const filterQuestion=question.filter(item=>item.status==='Approved')
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://uni-share-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setAllUsers(data));
   }, [allUsers]);
@@ -46,7 +46,7 @@ const AllFile = () => {
     const email = user?.email;
     const findUser = allUsers.filter((user) => user.email === email);
     if (findUser[0]?.point > 0) {
-      fetch(`http://localhost:5000/point/remove/${email}`, {
+      fetch(`https://uni-share-server.vercel.app/point/remove/${email}`, {
         method: "PUT",
       })
         .then((res) => res.json())

@@ -38,7 +38,7 @@ const Register = () => {
   };
   const saveUser = (name, email) => {
     const user = { name, email, point: 15 };
-    fetch("http://localhost:5000/users", {
+    fetch("https://uni-share-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

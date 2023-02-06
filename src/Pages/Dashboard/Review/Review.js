@@ -19,7 +19,7 @@ const Review = () => {
       status: "Not Approved",
     };
     //save in the database
-    fetch("http://localhost:5000/review", {
+    fetch("https://uni-share-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

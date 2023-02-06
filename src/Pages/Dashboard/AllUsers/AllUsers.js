@@ -5,13 +5,13 @@ const AllUsers = () => {
   const [loadAdmin, setLoadAdmin] = useState(false);
   const [allUsers, setAllUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://uni-share-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setAllUsers(data));
   }, [allUsers, loadAdmin]);
   const handleMakeAdmin = (id) => {
     setLoadAdmin(false);
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://uni-share-server.vercel.app/users/admin/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -25,7 +25,7 @@ const AllUsers = () => {
   const handleCancel = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/allUser/${id}`;
+      const url = `https://uni-share-server.vercel.app/allUser/${id}`;
       fetch(url, {
         method: "DELETE",
       })
