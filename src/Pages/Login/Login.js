@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import logo from "../../images/uiu_logo_update.png";
+import '../Style/style.css';
 
 const Login = () => {
   const {
@@ -30,16 +30,13 @@ const Login = () => {
       });
   };
   return (
-    <div className="container mt-5">
-      <div className="row g-3 w-50 border p-4 d-block m-auto">
+    <div className="loginPage">
+      <div className="container inputForm">
+      <div className="row rounded g-3 w-50 border d-block m-auto bg-light">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12">
-            <img
-              className="mx-auto d-block mb-2"
-              src={logo}
-              height="70px"
-            ></img>
-            <h5 className="text-center">Login</h5>
+            <h1 className="text-center">Uin<span className="logoColor">Share</span></h1>
+            <h5 className="text-center  border bg-info p-2">Login</h5>
             <label htmlFor="inputEmail4" className="form-label">
               Email
             </label>
@@ -104,6 +101,8 @@ const Login = () => {
           <Link to="/register">Create New Account</Link>
         </p>
       </div>
+      </div>
+      
     </div>
   );
 };

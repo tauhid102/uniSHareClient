@@ -3,8 +3,8 @@ import image1 from "../../images/Carosol_1.jpg";
 import image2 from "../../images/Carosol_3.jpg";
 import image3 from "../../images/Carosol_4.jpg";
 import { Link } from "react-router-dom";
-import AllFile from "../AllFile/AllFile";
 import ShowReview from "../ShowReview/ShowReview";
+import Forum from "../Forum/Forum"
 import '../Style/style.css';
 const Home = () => {
   return (
@@ -102,7 +102,7 @@ const Home = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <AllFile></AllFile>
+      <Forum></Forum>
       <ShowReview></ShowReview>
     </div>
   );

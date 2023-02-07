@@ -56,11 +56,11 @@ const DashboardLayout = () => {
                           Request
                         </Link>
                       </li>
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <Link className="nav-link active" to="/dashboard/review">
                           Review
                         </Link>
-                      </li>
+                      </li> */}
                       <li className="nav-item">
                         <Link className="nav-link active" to="/dashboard/history">
                           My History

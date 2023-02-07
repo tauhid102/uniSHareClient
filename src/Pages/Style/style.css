@@ -64,6 +64,25 @@
 .forum{
     z-index: -1 !important;
 }
+.loginPage{
+    background-image: url('https://img.freepik.com/free-psd/business-people-working-with-laptop_53876-12022.jpg?w=740&t=st=1675783370~exp=1675783970~hmac=fd4acda79ead6cc88f1d6b328368ff796c1c4ffd72a8d0cd2d1dfb97523adb19');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 615px;
+}
+.registerPage{
+    background-image: url('https://img.freepik.com/free-psd/business-people-working-with-laptop_53876-12022.jpg?w=740&t=st=1675783370~exp=1675783970~hmac=fd4acda79ead6cc88f1d6b328368ff796c1c4ffd72a8d0cd2d1dfb97523adb19');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 615px;
+}
+.inputForm{
+    padding-top: 50px;
+    border-radius: 10px;
+}
+.registerForm{
+    padding-top: 50px;
+}
 @media only screen and (max-width: 945px) {
     .dashboardLayout {
         margin-top: 0px !important;

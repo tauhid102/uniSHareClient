@@ -14,14 +14,11 @@ const Forum = () => {
   console.log(reversedObj);
   return (
     <div className="container forum">
-      <h4 className="text-center">Recent Post</h4>
-      {forums?.map((ques) => (
-        <div
-          key={ques._id}
-          className="card mb-3 shadow-lg p-3 mb-5 bg-white rounded"
-        >
-          <div className="row g-0">
-            <div className="col-md-12">
+    <h4 className="text-center mt-3 border bg-info p-2">Recent Post</h4>
+      <div class="row row-cols-2 row-cols-md-2 g-4">
+        {forums?.map((ques) => (
+          <div class="col" key={ques._id}>
+            <div class="card">
               <div className="card-body">
                 <h5 className="card-title">Title:{ques.courseTitle}</h5>
                 <h6>Date: {ques.date}</h6>
@@ -31,8 +28,8 @@ const Forum = () => {
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

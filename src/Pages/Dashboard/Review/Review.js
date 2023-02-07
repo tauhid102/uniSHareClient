@@ -86,7 +86,6 @@ const Review = () => {
                 </select>
               </div>
             </div>
-            <StarRating defaultValue={5} min={0} max={10} step={0.5} />
             <div className="col-12 text-center mt-3">
               <button
                 type="submit"

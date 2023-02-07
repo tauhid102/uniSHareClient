@@ -20,7 +20,7 @@ const AllFile = () => {
       .then((res) => res.json())
       .then((data) => setQuestion(data));
   }, [question]);
-  const filterQuestion=question.filter(item=>item.status==='Approved')
+  const filterQuestion = question.filter((item) => item.status === "Approved");
   useEffect(() => {
     fetch("https://uni-share-server.vercel.app/users")
       .then((res) => res.json())
@@ -116,24 +116,23 @@ const AllFile = () => {
         </div>
       </div>
       {category.length > 0 ? (
-        <h5 className="mt-4 text-center">Search Result</h5>
+        <h5 className="mt-4 text-center  mt-3 border bg-info p-2">Search Result</h5>
       ) : (
         alart && (
-          <h5 className="mt-4 text-center text-danger">
+          <h5 className="mt-4 text-center text-danger  mt-3 border bg-info p-2">
             No Search Result Found
           </h5>
         )
       )}
-      {category?.map((ques) => (
-        <div
-          key={ques._id}
-          className="card mb-3 shadow-lg p-3 mb-5 bg-white rounded"
-        >
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img src={ques.image} className="img-fluid rounded-start" alt="..." />
-            </div>
-            <div className="col-md-8">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        {category?.map((ques) => (
+          <div class="col shadow-lg" key={ques._id}>
+            <div class="card">
+              <img
+                src={ques.image}
+                className="img-fluid rounded-start"
+                alt="..."
+              />
               <div className="card-body">
                 <h5 className="card-title">{ques.courseTitle}</h5>
                 <p className="card-text">{ques.description}</p>
@@ -148,25 +147,19 @@ const AllFile = () => {
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
       <div>
-        <h5 className="mt-4 text-center">All File</h5>
-        {filterQuestion?.map((ques) => (
-          <div
-            key={ques._id}
-            className="card mb-3 shadow-lg p-3 mb-5 bg-white rounded"
-          >
-            <div className="row g-0">
-              <div className="col-md-4">
+        <h5 className="mt-4 text-center  mt-3 border bg-info p-2">All File</h5>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          {filterQuestion?.map((ques) => (
+            <div key={ques._id} class="col">
+              <div class="card">
                 <img
                   src={ques.image}
                   className="img-fluid rounded-start"
                   alt="..."
-                  width='50%'
                 />
-              </div>
-              <div className="col-md-8">
                 <div className="card-body">
                   <h5 className="card-title">{ques.courseTitle}</h5>
                   <p className="card-text">{ques.description}</p>
@@ -181,8 +174,8 @@ const AllFile = () => {
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
