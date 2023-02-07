@@ -5,6 +5,7 @@ import image3 from "../../images/Carosol_4.jpg";
 import { Link } from "react-router-dom";
 import AllFile from "../AllFile/AllFile";
 import ShowReview from "../ShowReview/ShowReview";
+import '../Style/style.css';
 const Home = () => {
   return (
     <div>

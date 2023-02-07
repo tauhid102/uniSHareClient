@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../context/AuthProvider";
+import StarRating from "react-bootstrap-star-rating";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
@@ -67,24 +68,25 @@ const Review = () => {
               </div>
             </div>
             <div className="col-md-12 ">
-            <div className="">
-                  <label htmlFor="inputState" className="form-label">
-                    Rating
-                  </label>
-                  <select
-                    {...register("rating", {
-                      required: "This is required",
-                    })}
-                    id="inputState"
-                    className="form-select"
-                  >
-                    <option value={'Great'}>Great</option>
-                    <option>Good</option>
-                    <option>Average</option>
-                    <option>Poor</option>
-                  </select>
-                </div>
+              <div className="">
+                <label htmlFor="inputState" className="form-label">
+                  Rating
+                </label>
+                <select
+                  {...register("rating", {
+                    required: "This is required",
+                  })}
+                  id="inputState"
+                  className="form-select"
+                >
+                  <option value={"Great"}>Great</option>
+                  <option>Good</option>
+                  <option>Average</option>
+                  <option>Poor</option>
+                </select>
+              </div>
             </div>
+            <StarRating defaultValue={5} min={0} max={10} step={0.5} />
             <div className="col-12 text-center mt-3">
               <button
                 type="submit"

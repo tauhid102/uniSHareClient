@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import '../Style/style.css'
 const Forum = () => {
   const [forums, setForums] = useState([]);
   useEffect(() => {
@@ -13,7 +13,7 @@ const Forum = () => {
   let reversedObj = Object.fromEntries(arr);
   console.log(reversedObj);
   return (
-    <div className="container">
+    <div className="container forum">
       <h4 className="text-center">Recent Post</h4>
       {forums?.map((ques) => (
         <div

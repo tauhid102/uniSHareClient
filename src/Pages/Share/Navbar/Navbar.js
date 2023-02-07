@@ -36,21 +36,27 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
               <li className="nav-item">
-                <Link className="nav-link active" to="/home">
-                  Home
-                </Link>
+                {user?.uid && (
+                  <Link className="nav-link active" to="/home">
+                    Home
+                  </Link>
+                )}
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/allFile">
-                  All File
-                </Link>
+                {user?.uid && (
+                  <Link className="nav-link" to="/allFile">
+                    All File
+                  </Link>
+                )}
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/forum">
-                  Forum
-                </Link>
+                {user?.uid && (
+                  <Link className="nav-link" to="/forum">
+                    Forum
+                  </Link>
+                )}
               </li>
               <li className="nav-item">
                 {user?.uid ? (
@@ -69,14 +75,19 @@ const Navbar = () => {
                 )}
               </li>
               <li className="nav-item">
-                <span className="nav-link">Point: {users[0]?.point}</span>
+                {user?.uid && (
+                  <span className="nav-link">Point: {users[0]?.point}</span>
+                )}
               </li>
               <li className="nav-item">
                 {user?.uid && (
                   <>
                     <Dropdown>
-                      <Dropdown.Toggle id="dropdown-basic" className="navbarDropdown">
-                      <img
+                      <Dropdown.Toggle
+                        id="dropdown-basic"
+                        className="navbarDropdown"
+                      >
+                        <img
                           src={user.photoURL}
                           class="d-flex m-auto  profileImageNavbar"
                           alt="..."
@@ -85,10 +96,19 @@ const Navbar = () => {
                         />
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
-                        <Dropdown.Item as={Link} to='/dashboard'>Dashboard</Dropdown.Item>
-                        <Dropdown.Item as={Link} to='/dashboard/myProfile'>Profile</Dropdown.Item>
+                        <Dropdown.Item as={Link} to="/dashboard">
+                          Dashboard
+                        </Dropdown.Item>
+                        <Dropdown.Item as={Link} to="/dashboard/myProfile">
+                          Profile
+                        </Dropdown.Item>
                         <Dropdown.Item>
-                          <Button onClick={handleLogout} className="btn btn-danger">Sign Out</Button>
+                          <Button
+                            onClick={handleLogout}
+                            className="btn btn-danger"
+                          >
+                            Sign Out
+                          </Button>
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>

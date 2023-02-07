@@ -55,3 +55,28 @@
     margin-top: 400px !important;
     background-color: #F8F9FA;
 }
+#carouselExampleCaptions{
+    z-index: -1;
+}
+.navbar-nav.ms-auto{
+    float: right !important;
+}
+.forum{
+    z-index: -1 !important;
+}
+@media only screen and (max-width: 945px) {
+    .dashboardLayout {
+        margin-top: 0px !important;
+        margin-left: -30px;
+    }
+    .navbar-nav.ms-auto{
+        background-color: #639fdb;
+        z-index: 99999999 !important;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .profileImage{
+        width: 40%;
+        height: 40%;
+    }
+  }
