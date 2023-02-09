@@ -54,7 +54,6 @@ const ManageReview = () => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Email</th>
             <th scope="col">Comment</th>
             <th scope="col">Date</th>
             <th scope="col">Rating</th>
@@ -67,7 +66,6 @@ const ManageReview = () => {
           {review?.map((his, i) => (
             <tr key={his._id}>
               <th scope="row">{i + 1}</th>
-              <td>{his.email}</td>
               <td>{his.comment}</td>
               <td>{his.date}</td>
               <td>{his.rating}</td>

@@ -83,10 +83,6 @@
 .registerForm{
     padding-top: 50px;
 }
-.photo{
-    height: '100px' !important;
-    width: "100px";
-}
 @media only screen and (max-width: 945px) {
     .dashboardLayout {
         margin-top: 0px !important;

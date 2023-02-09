@@ -141,21 +141,17 @@ const AllFile = () => {
             <div class="card allfile">
               <img
                 src={ques.image}
-                className="rounded photo"
+                className="rounded"
                 alt="..."
-                width="100"
+                width="350px"
+                height="200px"
               />
               <div className="card-body">
                 <h5 className="card-title">{ques.courseTitle}</h5>
                 <p className="card-text">{ques.description}</p>
                 <h5 className="card-title">{ques.exam}</h5>
                 <h5 className="card-title">{ques.category}</h5>
-                <button
-                  className="btn btn-info"
-                  onClick={() => download(ques.image)}
-                >
-                  Download
-                </button>
+                <Link to={`/download/${ques._id}`}><button className='btn btn-dark'>Download</button></Link>
               </div>
             </div>
           </div>
@@ -166,20 +162,20 @@ const AllFile = () => {
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           {filterQuestion?.map((ques) => (
             <div key={ques._id} class="col">
-              <div class="card">
+              <div class="card allfile">
                 <img
                   src={ques.image}
-                  className="img-fluid rounded-start"
+                  className="rounded"
                   alt="..."
-                  width="400px"
-                  height="100px"
+                  width="350px"
+                  height="200px"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{ques.courseTitle}</h5>
                   <p className="card-text">{ques.description}</p>
                   <h5 className="card-title">{ques.exam}</h5>
                   <h5 className="card-title">{ques.category}</h5>
-                  <Link to={`/download/${ques._id}`}><button className='btn btn-dark'>Purchase</button></Link>
+                  <Link to={`/download/${ques._id}`}><button className='btn btn-dark'>Download</button></Link>
                 </div>
               </div>
             </div>
