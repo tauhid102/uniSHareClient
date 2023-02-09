@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import { saveAs } from "file-saver";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Download = () => {
   const { ids } = useParams();
@@ -8,6 +10,8 @@ const Download = () => {
   const [rating, setRating] = useState("");
   const [download, setDownloads] = useState([]);
   const [review, setReview] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
+  const { user } = useContext(AuthContext);
   useEffect(() => {
     const url = `https://uniserver.vercel.app/question/${ids}`;
     fetch(url)
@@ -20,8 +24,22 @@ const Download = () => {
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [review]);
+  useEffect(() => {
+    fetch("https://uniserver.vercel.app/users")
+      .then((res) => res.json())
+      .then((data) => setAllUsers(data));
+  }, [allUsers]);
   const reviewFilter = review.filter((item) => item.id === ids);
-  console.log(reviewFilter);
+  const handleChange=(e)=>{
+    e.preventDefault();
+    const inputValue = e.target.value;
+    if (inputValue >= 1 && inputValue <= 5) {
+        setRating(inputValue);
+      }
+      else{
+        toast.error('Give Rating 1 to 5')
+      }
+  }
   const addReview = (e, id) => {
     e.preventDefault();
     let currentDate = new Date().toJSON().slice(0, 10);
@@ -46,6 +64,23 @@ const Download = () => {
         toast.success("Review is added successfully");
       });
   };
+  
+  const downloads = (url) => {
+    const email = user?.email;
+    const findUser = allUsers.filter((user) => user.email === email);
+    if (findUser[0]?.point > 0) {
+      fetch(`https://uniserver.vercel.app/point/remove/${email}`, {
+        method: "PUT",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          saveAs(url, url);
+          toast.success("Download Success");
+        });
+    } else {
+      toast("Please Earn Point");
+    }
+  };
   return (
     <div>
       <h5 className="mt-4 text-center  mt-3 border bg-info p-2">
@@ -63,7 +98,7 @@ const Download = () => {
                   <p class="card-text">Category: {download.category}</p>
                   <p class="card-text">Description: {download.description}</p>
                   <button
-                    onClick={() => download(download.image)}
+                    onClick={() => downloads(download.image)}
                     type="button"
                     class="btn btn-primary"
                   >
@@ -106,7 +141,7 @@ const Download = () => {
                             type="number"
                             className="form-control"
                             id="inputEmail1"
-                            onBlur={(e) => setRating(e.target.value)}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -131,9 +166,9 @@ const Download = () => {
             <div class="col" key={ques._id}>
               <div class="card">
                 <div className="card-body">
-                  <h5 className="card-title">Comment: {ques.comment}</h5>
+                  <h5 className="card-title">Rating: {ques.rating}</h5>
                   <h6>Date: {ques.date}</h6>
-                  <h6 className="card-title">Rating: {ques.rating}</h6>
+                  <p className="card-title">Comment: {ques.comment}</p>
                 </div>
               </div>
             </div>

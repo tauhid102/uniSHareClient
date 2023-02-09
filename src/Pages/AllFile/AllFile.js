@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { saveAs } from "file-saver";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 import "../Style/style.css";
@@ -8,10 +7,7 @@ import { Link } from "react-router-dom";
 const AllFile = () => {
   const [question, setQuestion] = useState([]);
   const [category, setCategory] = useState([]);
-  const [review, setReview] = useState([]);
   const [alart, setAlart] = useState(false);
-  const { user } = useContext(AuthContext);
-  const [allUsers, setAllUsers] = useState([]);
   const {
     register,
     formState: { errors },
@@ -24,17 +20,6 @@ const AllFile = () => {
       .then((data) => setQuestion(data));
   }, [question]);
   const filterQuestion = question.filter((item) => item.status === "Approved");
-  useEffect(() => {
-    fetch("https://uniserver.vercel.app/users")
-      .then((res) => res.json())
-      .then((data) => setAllUsers(data));
-  }, [allUsers]);
-
-  useEffect(() => {
-    fetch("https://uniserver.vercel.app/review")
-      .then((res) => res.json())
-      .then((data) => setReview(data));
-  }, [review]);
   const search = (data) => {
     if (data.courseTitle === "") {
       const ct = question.filter((item) => item.exam === data.exam);
@@ -49,22 +34,6 @@ const AllFile = () => {
       );
       setCategory(course);
       setAlart(true);
-    }
-  };
-  const download = (url) => {
-    const email = user?.email;
-    const findUser = allUsers.filter((user) => user.email === email);
-    if (findUser[0]?.point > 0) {
-      fetch(`https://uniserver.vercel.app/point/remove/${email}`, {
-        method: "PUT",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          saveAs(url, url);
-          toast.success("Download Success");
-        });
-    } else {
-      toast("Please Earn Point");
     }
   };
   return (
