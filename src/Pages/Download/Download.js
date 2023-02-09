@@ -10,13 +10,13 @@ const Download = () => {
   const [review, setReview] = useState([]);
   console.log(ids);
   useEffect(() => {
-    const url = `http://localhost:5000/question/${ids}`;
+    const url = `https://uni-share-server.vercel.app/question/${ids}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setDownloads(data));
   }, [download]);
   useEffect(() => {
-    const url = "http://localhost:5000/review";
+    const url = "https://uni-share-server.vercel.app/review";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setReview(data));
