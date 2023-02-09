@@ -3,9 +3,12 @@ import { useForm } from "react-hook-form";
 import { saveAs } from "file-saver";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
+import "../Style/style.css";
+import { Link } from "react-router-dom";
 const AllFile = () => {
   const [question, setQuestion] = useState([]);
   const [category, setCategory] = useState([]);
+  const [review, setReview] = useState([]);
   const [alart, setAlart] = useState(false);
   const { user } = useContext(AuthContext);
   const [allUsers, setAllUsers] = useState([]);
@@ -26,6 +29,12 @@ const AllFile = () => {
       .then((res) => res.json())
       .then((data) => setAllUsers(data));
   }, [allUsers]);
+
+  useEffect(() => {
+    fetch("https://uni-share-server.vercel.app/review")
+      .then((res) => res.json())
+      .then((data) => setReview(data));
+  }, [review]);
   const search = (data) => {
     if (data.courseTitle === "") {
       const ct = question.filter((item) => item.exam === data.exam);
@@ -116,7 +125,9 @@ const AllFile = () => {
         </div>
       </div>
       {category.length > 0 ? (
-        <h5 className="mt-4 text-center  mt-3 border bg-info p-2">Search Result</h5>
+        <h5 className="mt-4 text-center  mt-3 border bg-info p-2">
+          Search Result
+        </h5>
       ) : (
         alart && (
           <h5 className="mt-4 text-center text-danger  mt-3 border bg-info p-2">
@@ -127,11 +138,12 @@ const AllFile = () => {
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {category?.map((ques) => (
           <div class="col shadow-lg" key={ques._id}>
-            <div class="card">
+            <div class="card allfile">
               <img
                 src={ques.image}
-                className="img-fluid rounded-start"
+                className="rounded photo"
                 alt="..."
+                width="100"
               />
               <div className="card-body">
                 <h5 className="card-title">{ques.courseTitle}</h5>
@@ -159,18 +171,15 @@ const AllFile = () => {
                   src={ques.image}
                   className="img-fluid rounded-start"
                   alt="..."
+                  width="400px"
+                  height="100px"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{ques.courseTitle}</h5>
                   <p className="card-text">{ques.description}</p>
                   <h5 className="card-title">{ques.exam}</h5>
                   <h5 className="card-title">{ques.category}</h5>
-                  <button
-                    className="btn btn-info"
-                    onClick={() => download(ques.image)}
-                  >
-                    Download
-                  </button>
+                  <Link to={`/download/${ques._id}`}><button className='btn btn-dark'>Purchase</button></Link>
                 </div>
               </div>
             </div>

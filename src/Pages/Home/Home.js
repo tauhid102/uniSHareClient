@@ -1,7 +1,6 @@
 import React from "react";
 import image3 from "../../images/12022.jpg";
 import { Link } from "react-router-dom";
-import ShowReview from "../ShowReview/ShowReview";
 import Forum from "../Forum/Forum"
 import '../Style/style.css';
 const Home = () => {
@@ -27,7 +26,6 @@ const Home = () => {
         </div>
       </div>
       <Forum></Forum>
-      <ShowReview></ShowReview>
     </div>
   );
 };

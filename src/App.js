@@ -20,6 +20,7 @@ import Review from "./Pages/Dashboard/Review/Review";
 import ManageReview from "./Pages/Dashboard/ManageReview/ManageReview";
 import Profile from "./Pages/Dashboard/Profile/Profile";
 import Forum from "./Pages/Forum/Forum";
+import Download from "./Pages/Download/Download";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +32,7 @@ function App() {
         { path: "/home", element: <PrivateRoute><Home></Home></PrivateRoute>},
         { path: "/allFile", element:<PrivateRoute> <AllFile></AllFile> </PrivateRoute>},
         { path: "/forum", element:<PrivateRoute> <Forum></Forum> </PrivateRoute>},
+        { path: "/download/:ids", element:<PrivateRoute> <Download></Download> </PrivateRoute>},
         { path: "/login", element: <Login></Login> },
         { path: "/register", element: <Register></Register> },
       ],

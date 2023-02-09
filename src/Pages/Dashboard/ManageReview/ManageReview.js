@@ -56,7 +56,7 @@ const ManageReview = () => {
             <th scope="col">#</th>
             <th scope="col">Email</th>
             <th scope="col">Comment</th>
-            <th scope="col">Problem</th>
+            <th scope="col">Date</th>
             <th scope="col">Rating</th>
             <th scope="col">Status</th>
             <th scope="col text-center">Approved</th>
@@ -69,7 +69,7 @@ const ManageReview = () => {
               <th scope="row">{i + 1}</th>
               <td>{his.email}</td>
               <td>{his.comment}</td>
-              <td>{his.problem}</td>
+              <td>{his.date}</td>
               <td>{his.rating}</td>
               <td>{his.status}</td>
               <td className="">
