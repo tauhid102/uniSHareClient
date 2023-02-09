@@ -11,7 +11,7 @@ const Navbar = () => {
   };
   const [users, setUser] = useState({});
   useEffect(() => {
-    fetch(`https://uni-share-server.vercel.app/point/user?email=${user?.email}`)
+    fetch(`https://uniserver.vercel.app/point/user?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, [users]);

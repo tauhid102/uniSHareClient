@@ -3,7 +3,7 @@ import '../Style/style.css'
 const Forum = () => {
   const [forums, setForums] = useState([]);
   useEffect(() => {
-    fetch("https://uni-share-server.vercel.app/forum")
+    fetch("https://uniserver.vercel.app/forum")
       .then((res) => res.json())
       .then((data) => setForums(data));
   }, []);

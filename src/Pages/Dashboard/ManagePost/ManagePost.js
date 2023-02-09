@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 const ManagePost = () => {
   const [question, setQuestion] = useState([]);
   const [accepted, setAccepted] = useState(true);
-  const url = "https://uni-share-server.vercel.app/questions";
+  const url = "https://uniserver.vercel.app/questions";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -14,7 +14,7 @@ const ManagePost = () => {
   const handleCancel = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `https://uni-share-server.vercel.app/questions/${id}`;
+      const url = `https://uniserver.vercel.app/questions/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -33,7 +33,7 @@ const ManagePost = () => {
     const ids = { id };
     const proceed = window.confirm("Are you sure, you want to accepted?");
     if (proceed) {
-      const url = `https://uni-share-server.vercel.app/questions/${id}`;
+      const url = `https://uniserver.vercel.app/questions/${id}`;
       fetch(url, {
         method: "PUT",
       })
@@ -50,7 +50,7 @@ const ManagePost = () => {
   const handleAddPoint = (id) => {
     const userInfo = question.filter((item) => item._id === id);
     const email = userInfo[0].email;
-    fetch(`https://uni-share-server.vercel.app/point/update/${email}`, {
+    fetch(`https://uniserver.vercel.app/point/update/${email}`, {
       method: "PUT",
     })
       .then((res) => res.json())

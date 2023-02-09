@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 const ManageRequest = () => {
   const [request, setRequest] = useState([]);
   const [accepted, setAccepted] = useState(true);
-  const url = "https://uni-share-server.vercel.app/request";
+  const url = "https://uniserver.vercel.app/request";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -14,7 +14,7 @@ const ManageRequest = () => {
   const handleCancel = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `https://uni-share-server.vercel.app/request/${id}`;
+      const url = `https://uniserver.vercel.app/request/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -33,7 +33,7 @@ const ManageRequest = () => {
     const ids = { id };
     const proceed = window.confirm("Are you sure, you want to accepted?");
     if (proceed) {
-      const url = `https://uni-share-server.vercel.app/request/${id}`;
+      const url = `https://uniserver.vercel.app/request/${id}`;
       fetch(url, {
         method: "PUT",
       })

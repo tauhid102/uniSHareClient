@@ -35,7 +35,7 @@ const Login = () => {
       <div className="row rounded g-3 w-50 border d-block m-auto bg-light">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12">
-            <h1 className="text-center">Uin<span className="logoColor">Share</span></h1>
+            <h1 className="text-center">Uni<span className="logoColor">Share</span></h1>
             <h5 className="text-center  border bg-info p-2">Login</h5>
             <label htmlFor="inputEmail4" className="form-label">
               Email

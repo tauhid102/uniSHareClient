@@ -36,7 +36,7 @@ const Register = () => {
   };
   const saveUser = (name, email) => {
     const user = { name, email, point: 15 };
-    fetch("https://uni-share-server.vercel.app/users", {
+    fetch("https://uniserver.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -56,7 +56,7 @@ const Register = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="col-md-12">
               <h1 className="text-center">
-                Uin<span className="logoColor">Share</span>
+                Uni<span className="logoColor">Share</span>
               </h1>
               <h5 className="text-center border bg-info p-2">Register</h5>
               <label htmlFor="inputEmail1" className="form-label">

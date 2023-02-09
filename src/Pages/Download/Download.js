@@ -8,15 +8,14 @@ const Download = () => {
   const [rating, setRating] = useState("");
   const [download, setDownloads] = useState([]);
   const [review, setReview] = useState([]);
-  console.log(ids);
   useEffect(() => {
-    const url = `https://uni-share-server.vercel.app/question/${ids}`;
+    const url = `https://uniserver.vercel.app/question/${ids}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setDownloads(data));
   }, [download]);
   useEffect(() => {
-    const url = "https://uni-share-server.vercel.app/review";
+    const url = "https://uniserver.vercel.app/review";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setReview(data));
@@ -35,7 +34,7 @@ const Download = () => {
     };
     console.log(request);
     //save in the database
-    fetch("https://uni-share-server.vercel.app/review", {
+    fetch("https://uniserver.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/AuthProvider";
 const MyPost = () => {
   const [history, setHistory] = useState([]);
   const { user } = useContext(AuthContext);
-  const url = `https://uni-share-server.vercel.app/history?email=${user?.email}`;
+  const url = `https://uniserver.vercel.app/history?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
